@@ -27,3 +27,7 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+tasks.jar {
+    manifest.attributes["Main-Class"] = "demo.railway_demo.RailwayDemoApplication"
+}
