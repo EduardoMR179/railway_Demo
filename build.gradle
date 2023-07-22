@@ -1,11 +1,14 @@
 plugins {
     id 'java'
+    id 'application'
     id 'org.springframework.boot' version '3.1.2'
     id 'io.spring.dependency-management' version '1.1.2'
 }
 
 group = 'demo'
 version = '0.0.1-SNAPSHOT'
+
+mainClassName = 'demo.railway_demo.RailwayDemoApplication'
 
 java {
     sourceCompatibility = '17'
@@ -24,10 +27,6 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-bootJar {
-    enabled = true
-    archiveFileName = 'railway_Demo.jar'
-    manifest {
-        attributes 'Main-Class': 'demo.railway_demo.RailwayDemoApplication'
-    }
+tasks.jar {
+    manifest.attributes["Main-Class"] = "demo.railway_demo.RailwayDemoApplication"
 }
